@@ -18,7 +18,7 @@ Condional variable allows running thred to wait on some condition and once the c
 + **notify_one()**
 + **notify_all()**
 
-If you need mutex to use conditional variable if some thread want to wait on some condition then it has to do these things
+You need mutex to use conditional variable if some thread want to wait on some condition then it has to do these things
 + aquire the mutex lock using **std::unique_lock<mutex> lock(m1)**
 + execute wait, wait_for, wait_until. the wait operation automatically release the mutex and suspend the execution of the thread.
 + When the condional variable is notified, the thread is awakened and resume waking if the wake up was spurious
@@ -63,9 +63,10 @@ In this code, two threads are created, **t1** and **t2**. The first thread, **t1
 
 The unique_lock class is used to protect access to the shared **ready** flag, and to ensure that the lock is automatically released when the scope of the lock ends. The wait method is called with the lock as its argument, and the lock is automatically released while the thread is waiting for the condition to be met. When the condition is met and the **notify_one** method is called, the wait method returns, and the lock is automatically re-acquired.
 
-Another way to write cv.wait is to wrap it in a while loop. Wrapping the **cv.wait()** function in a while loop ensures that the thread will continue to wait until the condition is actually met
+Another way to write cv.wait is to wrap it in a while loop. Wrapping the **cv.wait()** function in a while loop ensures that the thread will continue to wait until the condition is actually met. This is call [spurious wake up](https://www.justsoftwaresolutions.co.uk/threading/condition-variable-spurious-wakes.html)
 ```
 	while (!ready) {
 		cond.wait(lock);
 	}
 ```
+
