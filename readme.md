@@ -1,5 +1,5 @@
 # What is Concurrency?
-Concurrency is an essential concept in computer science. It is a process in which multiple computations execute at the same time. This parallel processing allows for the execution of multiple tasks simultaneously, thus increasing system efficiency. But when multiple tasks are executing in parallel, a problem called "Race Condition" may occur. Race Condition is when two or more threads access shared data simultaneously and try to modify it, resulting in an incorrect output. Semaphore is a tool that can be used to avoid Race Condition by providing a mechanism to synchronize the shared resource access between threads.
+Concurrency is an essential concept in computer science. It is a process in which multiple computations execute at the same time. This parallel processing allows for the execution of multiple tasks simultaneously, thus increasing system efficiency. But when multiple tasks are executing in parallel, a problem called "Race Condition" may occur. Race Condition is when two or more threads access shared data simultaneously and try to modify it, resulting in an incorrect output. 
 ## Some important topics to know to solve concurency problem in c++
 
 ## Unique Lock
