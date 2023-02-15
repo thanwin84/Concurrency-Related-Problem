@@ -1,3 +1,4 @@
+// we will allow a philosopher to pick up forks only if both forks are available
 class Semaphore {
 	std::mutex m;
 	std::condition_variable cond;
